@@ -1,0 +1,8 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+app_details:
+    path: /details/{id}
+    controller: App\Controller\DetailsController::detailsAction
+    methods: GET

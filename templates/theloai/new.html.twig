@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Theloai{% endblock %}
+
+{% block body %}
+    <h1>Create new Theloai</h1>
+
+    {{ include('theloai/_form.html.twig') }}
+
+    <a href="{{ path('app_theloai_index') }}">back to list</a>
+{% endblock %}

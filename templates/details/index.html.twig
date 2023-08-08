@@ -1,0 +1,140 @@
+ {% extends 'home.html.twig' %}
+
+{% block title %}Book Details{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .product-image {
+            text-align: center;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+
+        }
+        .product-details {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .product-description {
+            margin-bottom: 1rem;
+        }
+        .product-quantity {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .quantity-label {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        .product-rating {
+            margin-bottom: 1rem;
+        }
+        .product-rating label {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        .product-button {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+        }
+        .product-button:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .cart{
+            text-align: center;
+        }
+    </style>
+    </head>
+    <body>
+
+    <header>
+        <h1>Chi tiết sản phẩm</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-image">
+                    <img src="{{ asset('hinhanh/' ~ book.getHinhanh()) }}" class="card-img-top" alt="{{ book.getTieude() }}">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="product-details">
+
+                    <h5 class="product-title">Tên sản phẩm: {{ book.gettieude() }}</h5>
+                    <p class="product-price">Giá: {{ book.getgia() }} VND</p>
+
+                    <p class="product-description">Số lượng : {{ book.getsoluong() }}</p>
+
+                    <div class="product-rating">
+                        <span class="quantity-label">Đánh giá:</span>
+                        <label>
+                            <input type="radio" name="rating" value="5"> 5 sao
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="4"> 4 sao
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="3"> 3 sao
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="2"> 2 sao
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="1"> 1 sao
+                        </label>
+                    </div>
+                    <form >
+                        <button class="btn btn-primary mt-4 addToCartBtn" type="submit">Thêm vào giỏ hàng</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+{% endblock %}

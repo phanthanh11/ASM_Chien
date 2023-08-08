@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.tieude) }}
+        {{ form_widget(form.tieude, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Tên truyện'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.tieude) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.tacgia) }}
+        {{ form_widget(form.tacgia, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Tác giả'
+            }
+        }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.theloai) }}
+        {{ form_widget(form.theloai, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Thể loại'
+            }
+        }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.gia) }}
+        {{ form_widget(form.gia, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Gia'
+            }
+        }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.soluong) }}
+        {{ form_widget(form.soluong, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Số lượng'
+            }
+        }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.hinhanh) }}
+        {{ form_widget(form.hinhanh, {
+            'attr': {
+                'class': 'form-control',
+                'placeholder': 'Hình ảnh'
+            }
+        }) }}
+    </div>
+
+    <input type="submit" name="edit_book" value="Save Changes" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}

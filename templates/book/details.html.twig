@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('shop_list') }}" class="btn btn-default">Back to book List</a>
+    <hr/>
+    <h2 class="page-header">{{ book.id }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Tac Gia: {{ book.tacgia.id }}</li>
+        <li class="list-group-item">Tac Gia: {{ book.theloai.id }}</li>
+        <li class="list-group-item">Tieu De: {{ book.tieude }}</li>
+        <li class="list-group-item">Gia: {{ book.gia }}</li>
+        <li class="list-group-item">So Luong: {{ book.soluong }}</li>
+        <li class="list-group-item">Hinh Anh: {{ book.hinhanh }}</li>
+    </ul>
+
+{% endblock %}

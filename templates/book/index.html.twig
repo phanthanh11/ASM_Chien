@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+        <div class="bs-example" data-example-id="striped-table">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Book</th>
+                    <th>Tac Gia</th>
+                    <th>Tieu De</th>
+                    <th>Gia</th>
+                    <th>So Luong</th>
+                    <th>Hinh anh</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in book %}
+                    <tr>
+                        <th scope="row">{{ book.id }}</th>
+                        <td>{{ book.tacgia.id }}</td>
+                        <td>{{ book.tacgia.id }}</td>
+                        <td>{{ book.tieude }}</td>
+                        <td>{{ book.gia }}</td>
+                        <td>{{ book.soluong }}</td>
+                        <td>{{ book.hinhanh }}</td>
+
+                        <td>
+                            {#                        <a href="{{ path('todo_details', {'id': todo.id}) }} " class='btn btn-success'>View</a>#}
+                            {#                        <a href="{{ path('todo_edit', {'id': todo.id}) }}" class='btn btn-default'>Edit</a>#}
+                            {#                        <a href="{{ path('todo_delete', {'id': todo.id}) }}" class='btn btn-danger'>Delete</a>#}
+                            <a href="{{ path('shop_details', {'id': book.id}) }}" class='btn btn-success'>View</a>
+                            <a href="{{ path('shop_edit', {'id': book.id}) }}" class='btn btn-default'>Edit</a>
+                            <a href="{{ path('shop_delete', {'id': book.id}) }}" class='btn btn-danger'>Delete</a>
+                            <a href="{{ path('shop_create', {'id': book.id}) }}" class='btn btn-success'>create</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}

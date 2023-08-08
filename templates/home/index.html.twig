@@ -1,0 +1,93 @@
+
+
+
+{% extends 'home.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            width: 300px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .product-card .card-body {
+            padding: 10px;
+        }
+
+        .product-card .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-card .card-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product-card .card-footer {
+            padding: 10px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .addToCartBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .addToCartBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-5">List Book Hot Dead To Day</h1>
+        <div class="product-container">
+            {% for book in book %}
+            <a href="{{ path('app_details', {'id': book.getId()}) }}">
+                <div class="product-card">
+                    <img src="{{ asset('hinhanh/' ~ book.getHinhanh()) }}" alt="{{ book.getTieude() }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.getTieude() }}</h5>
+                        <p class="card-text">Giá: {{ book.getGia() }}.VND</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.tieude) }}
+        {{ form_widget(form.tieude, {'attr': {'class': 'form-control', 'placeholder': 'Tieu De'}}) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.tieude) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.tacgia) }}
+        {{ form_widget(form.tacgia, {'attr': {'class': 'form-control', 'placeholder': 'Ten Tac Gia'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.theloai) }}
+        {{ form_widget(form.theloai, {'attr': {'class': 'form-control', 'placeholder': 'Ten the loai'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.gia) }}
+        {{ form_widget(form.gia, {'attr': {'class': 'form-control', 'placeholder': 'Gia'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.soluong) }}
+        {{ form_widget(form.soluong, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.hinhanh) }}
+        {{ form_widget(form.hinhanh, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    {% for error in form_errors(form) %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endfor %}
+    <input type="submit" name="create_book" value="Create" class="btn btn-primary"/>
+    {{ form_end(form) }}
+{% endblock %}
